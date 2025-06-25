@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'SignUp.dart';
+import 'package:laundromat/routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SignUpScreen(),
+      initialRoute: AppRoutes.signIn,
+      onGenerateRoute: AppRoutes.generateRoute,
     );
   }
 }
