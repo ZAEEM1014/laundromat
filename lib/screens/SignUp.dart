@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:laundromat/constants/app_assets.dart';
 import 'package:laundromat/constants/constants.dart';
 
-import '../components/outlined_button.dart';
-import '../components/primary_button.dart';
-import '../components/text_field.dart';
+import '../widgets/outlined_button.dart';
+import '../widgets/primary_button.dart';
+import '../widgets/text_field.dart';
 import '../routes/routes.dart';
+
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({Key? key}) : super(key: key);
@@ -19,7 +21,7 @@ class SignUpScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 25),
             Image.asset(
-              'assets/SignupLOGO.png',
+              AppAssets.bglogo,
               width: 280,
               height: 160,
             ),
@@ -47,7 +49,7 @@ class SignUpScreen extends StatelessWidget {
               label: "Sign up",
               onPressed: () {},
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 14),
             const Text.rich(
               TextSpan(
                 text: "By signing up, you agree with ",
@@ -66,7 +68,7 @@ class SignUpScreen extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
             CustomOutlinedButton(
               label: "Sign in",
               onPressed: () {

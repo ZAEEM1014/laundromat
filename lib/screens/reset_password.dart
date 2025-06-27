@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:laundromat/components/primary_button.dart';
+import 'package:laundromat/widgets/primary_button.dart';
 import 'package:laundromat/constants/constants.dart';
 
-import '../components/text_field.dart';
+import '../constants/app_assets.dart';
+import '../widgets/text_field.dart';
 import '../routes/routes.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
@@ -23,7 +24,7 @@ class ResetPasswordScreen extends StatelessWidget {
               // Logo (replace with your image asset if needed)
               Center(
                 child: Image.asset(
-                  'assets/SignupLOGO.png',
+                  AppAssets.bglogo,
                   width: 280,
                   height: 160,
                 ),

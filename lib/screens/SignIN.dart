@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:laundromat/components/outlined_button.dart';
-import 'package:laundromat/components/primary_button.dart';
-import '../components/social_outlined_button.dart';
-import '../components/text_field.dart';
+import 'package:laundromat/constants/app_assets.dart';
+
+import '../constants/constants.dart';
 import '../routes/routes.dart';
+import '../widgets/outlined_button.dart';
+import '../widgets/primary_button.dart';
+import '../widgets/social_outlined_button.dart';
+import '../widgets/text_field.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -19,23 +22,23 @@ class SignInScreen extends StatelessWidget {
           children: [
             // Logo
             Image.asset(
-              'assets/SignupLOGO.png',
+              AppAssets.bglogo,
               width: 280,
               height: 160,
             ),
             const SizedBox(height: 0),
 
-            const Text(
+            Text(
               "Sign in",
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.w700,
-                color: Colors.black87,
+                color:AppColors.text,
               ),
             ),
             const SizedBox(height: 20),
 
-            const CustomTextField(hintText: "Email"),
+            const CustomTextField(hintText: "Email",),
             const SizedBox(height: 16),
             const CustomTextField(hintText: "Password", isObscure: true),
 
@@ -48,7 +51,7 @@ class SignInScreen extends StatelessWidget {
                 style: TextButton.styleFrom(padding: EdgeInsets.zero),
                 child: const Text(
                   "Forgot Password",
-                  style: TextStyle(fontSize: 12, color: Colors.deepPurple),
+                  style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600, color: Colors.deepPurple),
                 ),
               ),
             ),
@@ -56,6 +59,7 @@ class SignInScreen extends StatelessWidget {
 
             PrimaryButton(
               label: "Sign In",
+
               onPressed: () {
                 Navigator.pushReplacementNamed(context, AppRoutes.mainNav);
               }, // Add sign-in logic
@@ -81,13 +85,13 @@ class SignInScreen extends StatelessWidget {
 
             SocialOutlinedButton(
               label: "Continue with Facebook",
-              iconPath: "assets/facebook.png",
+              iconPath: AppAssets.facebook,
               onPressed: () {},
             ),
             const SizedBox(height: 12),
             SocialOutlinedButton(
               label: "Continue with Google",
-              iconPath: "assets/google.png",
+              iconPath:AppAssets.google,
               onPressed: () {},
             ),
           ],

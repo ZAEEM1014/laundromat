@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:laundromat/components/primary_button.dart';
+import 'package:laundromat/widgets/primary_button.dart';
 import 'package:laundromat/constants/constants.dart';
 
+import '../constants/app_assets.dart';
 import '../routes/routes.dart'; // ✅ import your AppColors
 
 class ForgotPasswordScreen extends StatefulWidget {
@@ -73,7 +74,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             children: [
               // Logo
               Image.asset(
-                'assets/SignupLOGO.png',
+                AppAssets.bglogo,
                 width: 280,
                 height: 160,
               ),
