@@ -23,7 +23,7 @@ class _NavBarAppState extends State<NavBarApp> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const NewOrderScreen(),
+    NewOrderScreen(),
     const OrdersScreen(),
   ];
 

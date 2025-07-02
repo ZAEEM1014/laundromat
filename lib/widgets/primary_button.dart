@@ -1,15 +1,18 @@
-// lib/widgets/primary_button.dart
 import 'package:flutter/material.dart';
 import 'package:laundromat/constants/constants.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
+  final double fontSize;
+  final Color color;
 
   const PrimaryButton({
     Key? key,
     required this.label,
     required this.onPressed,
+    this.fontSize = 24.0,
+    this.color = AppColors.primary,
   }) : super(key: key);
 
   @override
@@ -20,15 +23,15 @@ class PrimaryButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary,
+          backgroundColor: color, // Use passed color here
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
         ),
         child: Text(
           label,
-          style: const TextStyle(
-            fontSize: 24,
+          style: TextStyle(
+            fontSize: fontSize,
             fontWeight: FontWeight.w700,
             color: Colors.white,
           ),

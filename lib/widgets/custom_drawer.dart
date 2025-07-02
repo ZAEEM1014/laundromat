@@ -124,7 +124,17 @@ class CustomDrawer extends StatelessWidget {
               // Track Order
               _buildSection("Track Order", [
                 _drawerItem("Order status", () {}),
-                _drawerItem("Track your laundry", () {}),
+                _drawerItem("Track your laundry", () {Navigator.pushNamed(
+                  context,
+                  AppRoutes.orderDetail,
+                  arguments: {
+                    'date': '16-04-2025',
+                    'soapId': '45336',
+                    'email': 'e.g.Leslie Alexander@email.com',
+                    'currentStep': 0,
+                    'currentStep': 3,
+                  },
+                );}),
               ], context),
 
               // Settings
