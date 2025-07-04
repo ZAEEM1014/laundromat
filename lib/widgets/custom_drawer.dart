@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../constants/app_assets.dart';
-import '../constants/constants.dart';
+import '../constants/app_colors.dart';
 import '../routes/routes.dart';
 import 'back_circular_icon.dart';
 
@@ -43,8 +43,8 @@ class CustomDrawer extends StatelessWidget {
                   // Back Icon
                   BackCircleIcon(
                     onTap: () => Navigator.pop(context),
-                    size: 25,       // Control container size
-                    iconSize: 15,   // Control arrow icon size
+                    size: 25, // Control container size
+                    iconSize: 15, // Control arrow icon size
                   ),
 
                   // Spacer to push content to center
@@ -57,10 +57,10 @@ class CustomDrawer extends StatelessWidget {
                         padding: const EdgeInsets.all(3),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          border: Border.all(color: AppColors.primary, width: 2),
+                          border:
+                              Border.all(color: AppColors.primary, width: 2),
                         ),
                         child: const CircleAvatar(
-
                           radius: 40,
                           backgroundImage: AssetImage(AppAssets.profilePhoto),
                           backgroundColor: Colors.transparent,
@@ -75,7 +75,9 @@ class CustomDrawer extends StatelessWidget {
                           color: AppColors.text,
                         ),
                       ),
-                      SizedBox(height: 2,),
+                      SizedBox(
+                        height: 2,
+                      ),
 
                       TextButton(
                         style: TextButton.styleFrom(
@@ -96,10 +98,10 @@ class CustomDrawer extends StatelessWidget {
                           ),
                         ),
                       ),
-                       // slight gap before underline
+                      // slight gap before underline
                       Container(
                         height: 0.8, // underline thickness
-                        width: 80,   // match width of text roughly
+                        width: 80, // match width of text roughly
                         color: AppColors.primary,
                       ),
                     ],
@@ -110,45 +112,48 @@ class CustomDrawer extends StatelessWidget {
                 ],
               ),
 
-
-
-
               SizedBox(height: screenHeight * 0.05),
 
               // Wallet
-              _buildSection("Wallet", [
-                _drawerItem("View recent transactions", () {}),
-                _drawerItem("Add balance to wallet", () {}),
-              ], context),
+              _buildSection(
+                  "Wallet",
+                  [
+                    _drawerItem("View recent transactions", () {}),
+                    _drawerItem("Add balance to wallet", () {}),
+                  ],
+                  context),
 
               // Track Order
-              _buildSection("Track Order", [
-                _drawerItem("Order status", () {}),
-                _drawerItem("Track your laundry", () {Navigator.pushNamed(
-                  context,
-                  AppRoutes.orderDetail,
-                  arguments: {
-                    'date': '16-04-2025',
-                    'soapId': '45336',
-                    'email': 'e.g.Leslie Alexander@email.com',
-                    'currentStep': 0,
-                    'currentStep': 3,
-                  },
-                );}),
-              ], context),
+              _buildSection(
+                  "Track Order",
+                  [
+                    _drawerItem("Order status", () {}),
+                    _drawerItem("Track your laundry", () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.trackorderaccess,
+                      );
+                    }),
+                  ],
+                  context),
 
               // Settings
-              _buildSection("Account Privacy & Setting", [
-                _drawerItem("Change Password", () {}),
-
-                _drawerItem("Setup 2 Factor Authentication", () {}),
-              ], context),
+              _buildSection(
+                  "Account Privacy & Setting",
+                  [
+                    _drawerItem("Change Password", () {}),
+                    _drawerItem("Setup 2 Factor Authentication", () {}),
+                  ],
+                  context),
 
               // Support
-              _buildSection("Help and Support", [
-                _drawerItem("Submit a ticket", () {}),
-                _drawerItem("View tickets", () {}),
-              ], context),
+              _buildSection(
+                  "Help and Support",
+                  [
+                    _drawerItem("Submit a ticket", () {}),
+                    _drawerItem("View tickets", () {}),
+                  ],
+                  context),
 
               SizedBox(height: screenHeight * 0.014),
 
@@ -157,26 +162,28 @@ class CustomDrawer extends StatelessWidget {
                 width: double.infinity,
                 child: OutlinedButton.icon(
                   style: OutlinedButton.styleFrom(
-
                     foregroundColor: AppColors.red,
                     backgroundColor: AppColors.lightred,
                     side: const BorderSide(color: Colors.red),
-
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
                   ),
-                  onPressed: (){ Navigator.pushNamed(context, AppRoutes.signIn);},
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.signIn);
+                  },
                   icon: SvgPicture.asset(
                     AppAssets.signOut,
                     height: 20,
                     width: 20,
                     // Optional: applies tint
                   ),
-                  label: const Text("Sign Out",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w700),),
+                  label: const Text(
+                    "Sign Out",
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                  ),
                 ),
               ),
-
             ],
           ),
         ),
@@ -192,9 +199,10 @@ class CustomDrawer extends StatelessWidget {
           alignment: Alignment.centerLeft,
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
           foregroundColor: AppColors.text,
-           // ✅ Correct
+          // ✅ Correct
         ),
         onPressed: onPressed,
         child: Text(label),
@@ -212,7 +220,6 @@ class CustomDrawer extends StatelessWidget {
           Row(
             children: [
               _getSectionIcon(title),
-
               const SizedBox(width: 10),
               Text(
                 title,
@@ -235,10 +242,10 @@ class CustomDrawer extends StatelessWidget {
       case "Wallet":
         return SvgPicture.asset(
           AppAssets.wallet,
-    height: 20,
-    width: 20,
-    // Optional: applies tint
-    );
+          height: 20,
+          width: 20,
+          // Optional: applies tint
+        );
       case "Track Order":
         return SvgPicture.asset(
           AppAssets.trackOrder,
@@ -264,6 +271,4 @@ class CustomDrawer extends StatelessWidget {
         return const SizedBox(height: 20, width: 20); // Placeholder if no match
     }
   }
-
-
 }

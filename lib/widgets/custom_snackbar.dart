@@ -1,6 +1,6 @@
 // lib/widgets/custom_snackbar.dart
 import 'package:flutter/material.dart';
-import '../constants/constants.dart';
+import '../constants/app_colors.dart';
 
 class CustomSnackbar extends StatelessWidget {
   final String message;

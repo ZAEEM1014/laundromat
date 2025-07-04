@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:laundromat/constants/constants.dart';
+import 'package:laundromat/constants/app_colors.dart';
 import 'package:laundromat/widgets/primary_button.dart';
 
 class OrderFailureScreen extends StatelessWidget {

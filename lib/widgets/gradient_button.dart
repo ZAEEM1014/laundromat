@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constants/constants.dart';
+import '../constants/app_colors.dart';
 
 class GradientButton extends StatelessWidget {
   final String label;

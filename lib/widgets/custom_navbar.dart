@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../constants/app_assets.dart';
-import '../constants/constants.dart';
+import '../constants/app_colors.dart';
 
 class CustomNavBar extends StatelessWidget {
   final int currentIndex;

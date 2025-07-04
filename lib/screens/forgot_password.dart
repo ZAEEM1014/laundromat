@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laundromat/widgets/primary_button.dart';
-import 'package:laundromat/constants/constants.dart';
+import 'package:laundromat/constants/app_colors.dart';
 
 import '../constants/app_assets.dart';
 import '../routes/routes.dart'; // ✅ import your AppColors

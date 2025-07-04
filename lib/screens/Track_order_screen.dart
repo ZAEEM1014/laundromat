@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:laundromat/constants/constants.dart';
+import 'package:laundromat/constants/app_colors.dart';
 import 'package:laundromat/widgets/primary_button.dart';
 import 'package:laundromat/widgets/text_field.dart';
+import '../routes/routes.dart';
 import '../widgets/custom_navbar.dart';
 
-class OrderDetailScreen extends StatefulWidget {
+class TrackOrderScreen extends StatefulWidget {
   final String date;
   final String soapId;
   final String email;
   final int currentStep;
 
-  const OrderDetailScreen({
+  const TrackOrderScreen({
     super.key,
     required this.date,
     required this.soapId,
@@ -19,11 +20,12 @@ class OrderDetailScreen extends StatefulWidget {
   });
 
   @override
-  State<OrderDetailScreen> createState() => _OrderDetailScreenState();
+  State<TrackOrderScreen> createState() => _TrackOrderScreenState();
 }
 
-class _OrderDetailScreenState extends State<OrderDetailScreen> {
+class _TrackOrderScreenState extends State<TrackOrderScreen> {
   int _selectedIndex = 1;
+
 
   final List<String> stepTitles = [
     'Order Placed',
@@ -91,8 +93,8 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
               color: Color(0xFFFFE7A7),
               borderRadius: BorderRadius.circular(10),
             ),
-            child: const Text(
-              'Out For Delivery',
+            child: Text(
+             " ${stepTitles[safeStep]}",
               style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
             ),
           ),
@@ -102,10 +104,12 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: [Divider(),
+            SizedBox(height: 5,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 Row(
                   children: [
                     const Text("Date: ",
@@ -137,13 +141,10 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
               ],
             ),
             const SizedBox(height: 10),
-            const Text("Email",
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20)),
-            const SizedBox(height: 4),
-            CustomTextField(hintText: widget.email),
-            const SizedBox(height: 16),
+
+            Divider(),
             const Text("Track Order",
-                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 20)),
+                style: TextStyle(fontWeight: FontWeight.w700, fontSize: 24)),
 
             Center(
               child: AnimatedSwitcher(
@@ -193,7 +194,20 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
             Center(
               child: PrimaryButton(
                 label: 'Get Your Bubble Bill',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.orderBill,
+                    arguments: {
+                      'laundryWeight': 80.0,
+                      'pricePerPound': 2.225,
+                      'totalPrice': 80.0 * 2.225,
+                      'date':'16-04-2025',
+                      'soapId':widget.soapId,
+                    },
+                  );
+
+                },
               ),
             ),
             const SizedBox(height: 16),

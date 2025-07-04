@@ -3,11 +3,13 @@ import 'package:laundromat/screens/SignIN.dart';
 import 'package:laundromat/screens/SignUp.dart';
 import 'package:laundromat/screens/forgot_password.dart';
 import 'package:laundromat/screens/reset_password.dart';
+import 'package:laundromat/screens/track_order_access.dart';
 
 import '../screens/edit_profile_screen.dart';
 import '../screens/nav_bar_app.dart';
+import '../screens/order_billing/order_bill.dart';
 import '../screens/order_confirmation_screen.dart';
-import '../screens/order_detail_screen.dart';
+import '../screens/Track_order_screen.dart';
 import '../screens/order_failure_screen.dart';
 import '../screens/order_success_screen.dart';
 
@@ -23,7 +25,9 @@ class AppRoutes {
   static const String orderConfirmation = '/order-confirmation';
   static const String orderSuccess = '/order-success';
   static const String orderFailure = '/order-failure';
-  static const String orderDetail = '/order-detail';
+  static const String trackorder = '/track-order';
+  static const String orderBill = '/order-bill';
+  static const String trackorderaccess = '/track-order-access';
 
 
 
@@ -61,16 +65,47 @@ class AppRoutes {
             date: args['date'] ?? '',
           ),
         );
-      case orderDetail:
+      case trackorder:
         final args = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
-          builder: (_) => OrderDetailScreen(
+          builder: (_) => TrackOrderScreen(
             date: args['date'] ?? '',
             soapId: args['soapId'] ?? '',
             email: args['email'] ?? '',
             currentStep: int.tryParse(args['currentStep'].toString()) ?? 0,
           ),
         );
+      case orderBill:
+        final args = settings.arguments as Map<String, dynamic>?;
+
+        final weight = args?['laundryWeight'];
+        final rate = args?['pricePerPound'];
+        final total = args?['totalPrice'];
+        final date = args?['date']?.toString();     // Ensure it's a String
+        final soapId = args?['soapId']?.toString();
+
+
+        if (weight is double && rate is double && total is double) {
+          return MaterialPageRoute(
+            builder: (_) => OrderBillScreen(
+              laundryWeight: weight,
+              pricePerPound: rate,
+              totalPrice: total,
+              date: date ?? '',           // ✅ use actual value from `args`
+              soapId: soapId ?? '',
+            ),
+          );
+        } else {
+          return MaterialPageRoute(
+            builder: (_) => const Scaffold(
+              body: Center(child: Text('Missing or invalid billing data')),
+            ),
+          );
+        }
+
+
+      case trackorderaccess:
+        return MaterialPageRoute(builder: (_) => const TrackOrderAccess());
 
 
 

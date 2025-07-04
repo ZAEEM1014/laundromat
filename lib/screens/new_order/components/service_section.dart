@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:laundromat/constants/app_assets.dart';
-import 'package:laundromat/constants/constants.dart';
+import 'package:laundromat/constants/app_colors.dart';
 import 'package:laundromat/widgets/preference_button.dart';
 
 class ServiceSection extends StatefulWidget {
@@ -16,6 +16,8 @@ class ServiceSection extends StatefulWidget {
   final String? selectedHeat;     // <-- Add this
   final String? selectedDry;      // <-- Add this
   final String selectedColor;
+  final bool showCompactQuantity;
+
 
   const ServiceSection({
     super.key,
@@ -30,6 +32,7 @@ class ServiceSection extends StatefulWidget {
     this.selectedHeat,           // <-- Add this
     this.selectedDry,
     required this.selectedColor,
+    this.showCompactQuantity = false,
   });
 
   @override

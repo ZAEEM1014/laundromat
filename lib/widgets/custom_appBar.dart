@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/app_assets.dart';
-import '../constants/constants.dart'; // Make sure this path is correct
+import '../constants/app_colors.dart'; // Make sure this path is correct
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});

@@ -1,6 +1,6 @@
 // lib/widgets/outlined_button.dart
 import 'package:flutter/material.dart';
-import 'package:laundromat/constants/constants.dart';
+import 'package:laundromat/constants/app_colors.dart';
 
 class CustomOutlinedButton extends StatelessWidget {
   final String label;

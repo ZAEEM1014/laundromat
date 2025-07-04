@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:laundromat/constants/app_assets.dart';
-import 'package:laundromat/constants/constants.dart';
+import 'package:laundromat/constants/app_colors.dart';
 
 import '../widgets/outlined_button.dart';
 import '../widgets/primary_button.dart';

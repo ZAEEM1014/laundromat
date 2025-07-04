@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../constants/constants.dart';
-import '../data/laundry_data.dart';
-import '../routes/routes.dart';
-import '../widgets/custom_snackbar.dart';
-import '../widgets/gradient_button.dart';
-import '../widgets/preference_sheet.dart';
-import '../widgets/service_section.dart';
-import '../widgets/text_field.dart';
+import 'package:laundromat/widgets/text_field.dart';
+import '../../constants/app_colors.dart';
+import '../../data/laundry_data.dart';
+import '../../routes/routes.dart';
+import '../../widgets/custom_snackbar.dart';
+import '../../widgets/gradient_button.dart';
+import '../../widgets/preference_sheet.dart';
+
+import '../../screens/new_order/components/service_section.dart';
 
 class NewOrderScreen extends StatefulWidget {
   const NewOrderScreen({super.key});
