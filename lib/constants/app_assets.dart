@@ -36,6 +36,7 @@ class AppAssets {
   static const String order_processing = 'assets/images/order_processing.png';
   static const String order_out_for_deliver= 'assets/images/order_out_for_deliver.png';
   static const String order_delivered = 'assets/images/order_delivered.png';
+  static const String wallet_refilled = 'assets/images/walllet_refilled.svg';
 
 
 }

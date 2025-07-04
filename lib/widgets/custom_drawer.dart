@@ -119,7 +119,12 @@ class CustomDrawer extends StatelessWidget {
                   "Wallet",
                   [
                     _drawerItem("View recent transactions", () {}),
-                    _drawerItem("Add balance to wallet", () {}),
+                    _drawerItem("Add balance to wallet", () {
+                      Navigator.pushNamed(
+                        context,
+                        AppRoutes.addfunds,
+                      );
+                    }),
                   ],
                   context),
 

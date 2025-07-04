@@ -4,6 +4,8 @@ import 'package:laundromat/screens/SignUp.dart';
 import 'package:laundromat/screens/forgot_password.dart';
 import 'package:laundromat/screens/reset_password.dart';
 import 'package:laundromat/screens/track_order_access.dart';
+import 'package:laundromat/screens/wallet/add_funds_screen.dart';
+import 'package:laundromat/screens/wallet/wallet_home_screen.dart';
 
 import '../screens/edit_profile_screen.dart';
 import '../screens/nav_bar_app.dart';
@@ -28,6 +30,8 @@ class AppRoutes {
   static const String trackorder = '/track-order';
   static const String orderBill = '/order-bill';
   static const String trackorderaccess = '/track-order-access';
+  static const String wallethome = '/wallet-home';
+  static const String addfunds = '/add-funds';
 
 
 
@@ -49,6 +53,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const NavBarApp(selectedIndex: 2));
       case editProfile:
         return MaterialPageRoute(builder: (_) => const EditProfileScreen());
+
       case orderSuccess:
         final args = settings.arguments as Map<String, String>;
         return MaterialPageRoute(
@@ -106,6 +111,11 @@ class AppRoutes {
 
       case trackorderaccess:
         return MaterialPageRoute(builder: (_) => const TrackOrderAccess());
+      case wallethome:
+        final addedAmount = settings.arguments as double? ?? 0.0;
+        return MaterialPageRoute(builder: (_) => WalletHomeScreen(addedAmount: addedAmount));
+      case addfunds:
+        return MaterialPageRoute(builder: (_) => const AddFunds());
 
 
 
