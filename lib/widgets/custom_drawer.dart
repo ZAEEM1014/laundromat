@@ -118,7 +118,9 @@ class CustomDrawer extends StatelessWidget {
               _buildSection(
                   "Wallet",
                   [
-                    _drawerItem("View recent transactions", () {}),
+                    _drawerItem("View recent transactions", () {
+                      Navigator.pushNamed(context, AppRoutes.recenttranactions);
+                    }),
                     _drawerItem("Add balance to wallet", () {
                       Navigator.pushNamed(
                         context,
@@ -132,7 +134,9 @@ class CustomDrawer extends StatelessWidget {
               _buildSection(
                   "Track Order",
                   [
-                    _drawerItem("Order status", () {}),
+                    _drawerItem("Order status", () {
+                      Navigator.pushNamed(context,AppRoutes.orders);
+                    }),
                     _drawerItem("Track your laundry", () {
                       Navigator.pushNamed(
                         context,
@@ -155,7 +159,9 @@ class CustomDrawer extends StatelessWidget {
               _buildSection(
                   "Help and Support",
                   [
-                    _drawerItem("Submit a ticket", () {}),
+                    _drawerItem("Submit a ticket", () {
+                      Navigator.pushNamed(context, AppRoutes.tickethome);
+                    }),
                     _drawerItem("View tickets", () {}),
                   ],
                   context),

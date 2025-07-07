@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:laundromat/constants/app_assets.dart';
 import 'package:laundromat/constants/app_colors.dart';
 import 'package:laundromat/constants/app_gradient.dart';
+import 'package:laundromat/routes/routes.dart';
+import 'package:laundromat/screens/wallet/components/recent_transactions.dart';
 import 'package:laundromat/widgets/custom_appBar.dart';
 import 'package:laundromat/widgets/custom_drawer.dart';
 import 'package:laundromat/widgets/custom_navbar.dart';
 import 'package:laundromat/widgets/outlined_button.dart';
 import 'package:laundromat/widgets/primary_button.dart';
 import 'package:laundromat/widgets/gradient_button.dart';
-import '../../data/wallet_home_data.dart';
+import '../../data/wallet_data.dart';
 import '../edit_profile_screen.dart';
+import 'components/saved_payment_card.dart';
 
 class WalletHomeScreen extends StatefulWidget {
   final double addedAmount;
@@ -21,6 +25,8 @@ class WalletHomeScreen extends StatefulWidget {
 
 class _WalletHomeScreenState extends State<WalletHomeScreen> {
   double walletBalance = 103.00;
+
+
 
   @override
   void initState() {
@@ -71,7 +77,11 @@ class _WalletHomeScreenState extends State<WalletHomeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text("Suds Wallet", style: TextStyle(color: AppColors.text,fontWeight: FontWeight.bold)),
+                    const Text("Suds Wallet",
+                        style: TextStyle(
+                            color: AppColors.text,
+                            fontWeight: FontWeight.bold)),
+
                     const SizedBox(height: 4),
                     Text(
                       "\$${walletBalance.toStringAsFixed(2)}",
@@ -90,7 +100,8 @@ class _WalletHomeScreenState extends State<WalletHomeScreen> {
                             label: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                const Icon(Icons.add, size: 20, color: Colors.white),
+                                const Icon(Icons.add,
+                                    size: 20, color: Colors.white),
                                 const SizedBox(width: 4),
                                 const Text(
                                   'Add Funds',
@@ -120,7 +131,6 @@ class _WalletHomeScreenState extends State<WalletHomeScreen> {
                         ),
                       ],
                     ),
-
                   ],
                 ),
               ),
@@ -129,35 +139,16 @@ class _WalletHomeScreenState extends State<WalletHomeScreen> {
               // Saved Ways to Pay
               const Text(
                 "Saved Ways to Pay",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700,color: AppColors.text),
               ),
               const SizedBox(height: 8),
-              Container(
-                padding: const EdgeInsets.all(12),
-                decoration: BoxDecoration(
-                  color: AppColors.textFieldFill,
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Row(
-                  children: const [
-                    CircleAvatar(
-                      backgroundImage: AssetImage('assets/images/user.jpg'),
-                      radius: 20,
-                    ),
-                    SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text("Personal", style: TextStyle(fontWeight: FontWeight.bold)),
-                          Text("Visa 0493", style: TextStyle(color: Colors.grey)),
-                        ],
-                      ),
-                    ),
-                    Icon(Icons.arrow_forward_ios, size: 16),
-                  ],
-                ),
-              ),
+              ...paymentMethods.map((method) => PaymentMethodCard(
+                title: method['title']!,
+                label: method['label']!,
+                card: method['card']!,
+                imagePath: method['image']!,
+              )),
+
               const SizedBox(height: 16),
 
               // Add New Card Button
@@ -165,7 +156,9 @@ class _WalletHomeScreenState extends State<WalletHomeScreen> {
                 width: double.infinity,
                 child: GradientButton(
                   label: 'Add NEW Card',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, AppRoutes.addcard);
+                  },
                 ),
               ),
               const SizedBox(height: 24),
@@ -173,16 +166,17 @@ class _WalletHomeScreenState extends State<WalletHomeScreen> {
               // Ledger Section
               const Text(
                 "Your Laundry Ledger",
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700,color: AppColors.text),
               ),
               const SizedBox(height: 10),
 
-              ...walletLedgerEntries.map((entry) => ledgerItem(
-                entry.date,
-                entry.title,
-                entry.amount,
-                entry.color,
+              ...walletLedgerEntries.take(3).map((entry) => LedgerItem(
+                date: entry.date,
+                title: entry.title,
+                amount: entry.amount,
+                amountColor: entry.color,
               )),
+
             ],
           ),
         ),
@@ -194,55 +188,5 @@ class _WalletHomeScreenState extends State<WalletHomeScreen> {
     );
   }
 
-  Widget ledgerItem(String date, String title, String amount, Color amountColor) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
-        decoration: BoxDecoration(
-          color: AppColors.textFieldFill,
-          border: Border.all(
-            color: AppColors.border,
-            width: 1,
-          ),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    date,
-                    style: const TextStyle(
-                      fontSize: 12,
-                      color: AppColors.hintColor,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                      color: AppColors.text,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Text(
-              amount,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: amountColor,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+
 }

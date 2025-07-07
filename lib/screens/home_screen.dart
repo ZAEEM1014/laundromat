@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:laundromat/routes/routes.dart';
 import '../constants/app_assets.dart';
 import '../constants/app_colors.dart';
 
@@ -13,19 +14,24 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           // Fixed Wallet Balance Bar
-          Container(
+          InkWell(
+            onTap: (){
+              Navigator.pushNamed(context, AppRoutes.wallethome);
+            },
+            child: Container(
 
-            height: 50,
+              height: 50,
 
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            width: double.infinity,
-            color: AppColors.primary,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text("Wallet Balance", style: TextStyle(color: AppColors.white,fontWeight: FontWeight.bold,fontSize: 20)),
-                Text("\$103", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 20)),
-              ],
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              width: double.infinity,
+              color: AppColors.primary,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: const [
+                  Text("Wallet Balance", style: TextStyle(color: AppColors.white,fontWeight: FontWeight.bold,fontSize: 20)),
+                  Text("\$103", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontSize: 20)),
+                ],
+              ),
             ),
           ),
 

@@ -5,7 +5,10 @@ import 'package:laundromat/screens/forgot_password.dart';
 import 'package:laundromat/screens/reset_password.dart';
 import 'package:laundromat/screens/track_order_access.dart';
 import 'package:laundromat/screens/wallet/add_funds_screen.dart';
+import 'package:laundromat/screens/wallet/recent_transactions.dart';
+import 'package:laundromat/screens/wallet/update_card_screen.dart';
 import 'package:laundromat/screens/wallet/wallet_home_screen.dart';
+
 
 import '../screens/edit_profile_screen.dart';
 import '../screens/nav_bar_app.dart';
@@ -14,6 +17,10 @@ import '../screens/order_confirmation_screen.dart';
 import '../screens/Track_order_screen.dart';
 import '../screens/order_failure_screen.dart';
 import '../screens/order_success_screen.dart';
+import '../screens/tickets/submit_ticket_screen.dart';
+import '../screens/tickets/ticket_home_screen.dart';
+import '../screens/wallet/add_card_screen.dart';
+
 
 class AppRoutes {
   static const String signIn = '/sign-in';
@@ -32,6 +39,12 @@ class AppRoutes {
   static const String trackorderaccess = '/track-order-access';
   static const String wallethome = '/wallet-home';
   static const String addfunds = '/add-funds';
+  static const String updatecard = '/update-card';
+  static const String addcard = '/add-card';
+  static const String recenttranactions = '/recent-transactions';
+  static const String tickethome = '/ticket-home';
+  static const String submitticket = '/submit-ticket';
+
 
 
 
@@ -124,6 +137,22 @@ class AppRoutes {
           builder: (context) => const OrderConfirmationScreen(),
           settings: settings,
         );
+
+      case updatecard:
+        return MaterialPageRoute(builder: (_) => const UpdateCardScreen());
+
+      case addcard:
+        return MaterialPageRoute(builder: (_) => const AddCardScreen());
+      case recenttranactions:
+        return MaterialPageRoute(builder: (_) => const RecentTransactions());
+
+
+      case tickethome:
+        return MaterialPageRoute(builder: (_) => const TicketHomeScreen());
+
+      case submitticket:
+        return MaterialPageRoute(builder: (_) => const SubmitTicketScreen());
+
 
       default:
         return MaterialPageRoute(

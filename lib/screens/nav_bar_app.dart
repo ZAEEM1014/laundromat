@@ -43,26 +43,32 @@ class _NavBarAppState extends State<NavBarApp> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(),
-      drawer: CustomDrawer(
-        onEditProfile: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => const EditProfileScreen()),
-          );
-        },
-        onSignOut: () {
-          // Sign-out logic
-        },
-      ),
-      backgroundColor: AppColors.background,
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: _pages,
-      ),
-      bottomNavigationBar: CustomNavBar(
-        currentIndex: _selectedIndex,
-        onTap: _onTabTapped,
+    return WillPopScope(
+      onWillPop: () async {
+        // Prevent back navigation from NewOrderScreen
+        return false;
+      },
+      child: Scaffold(
+        appBar: const CustomAppBar(),
+        drawer: CustomDrawer(
+          onEditProfile: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(builder: (_) => const EditProfileScreen()),
+            );
+          },
+          onSignOut: () {
+            // Sign-out logic
+          },
+        ),
+        backgroundColor: AppColors.background,
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: _pages,
+        ),
+        bottomNavigationBar: CustomNavBar(
+          currentIndex: _selectedIndex,
+          onTap: _onTabTapped,
+        ),
       ),
     );
   }

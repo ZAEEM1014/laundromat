@@ -14,6 +14,17 @@ class AppAssets {
   static const String google = 'assets/icons/google.svg';
   static const String addQuantity= 'assets/icons/addQuantity.svg';
   static const String removeQuantity= 'assets/icons/removeQuantity.svg';
+  static const String ticket= 'assets/icons/ticket.svg';
+  static const String ticket1= 'assets/icons/ticket1.svg';
+  static const String ticket2= 'assets/icons/ticket2.svg';
+  static const String ticket3= 'assets/icons/ticket3.svg';
+  static const String ticket4= 'assets/icons/ticket4.svg';
+  static const String ticket5= 'assets/icons/ticket5.svg';
+  static const String ticket6= 'assets/icons/ticket6.svg';
+  static const String ticket7= 'assets/icons/ticket7.svg';
+  static const String ticket8= 'assets/icons/ticket8.svg';
+  static const String download= 'assets/icons/download.svg';
+
 
 
   // Logos
@@ -37,6 +48,7 @@ class AppAssets {
   static const String order_out_for_deliver= 'assets/images/order_out_for_deliver.png';
   static const String order_delivered = 'assets/images/order_delivered.png';
   static const String wallet_refilled = 'assets/images/walllet_refilled.svg';
+  static const String ticket_submited = 'assets/images/ticket_submited.svg';
 
 
 }
