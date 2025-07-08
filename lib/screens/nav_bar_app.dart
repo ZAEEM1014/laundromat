@@ -5,10 +5,10 @@ import '../widgets/custom_appBar.dart';
 import '../widgets/custom_drawer.dart';
 import '../widgets/custom_navbar.dart';
 import '../constants/app_colors.dart';
-import 'home_screen.dart';
-import 'new_order/new_order_screen.dart';
-import 'order_screen.dart';
-import 'edit_profile_screen.dart';
+import 'home/home_screen.dart';
+import 'order_details/order_detail_screen.dart';
+import 'orders/new_order_screen.dart';
+import 'profile/edit_profile_screen.dart';
 
 class NavBarApp extends StatefulWidget {
   final int selectedIndex;
@@ -24,7 +24,7 @@ class _NavBarAppState extends State<NavBarApp> {
   final List<Widget> _pages = [
     const HomePage(),
     NewOrderScreen(),
-    const OrdersScreen(),
+    const OrdersDetailScreen(),
   ];
 
   @override

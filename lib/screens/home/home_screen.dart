@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:laundromat/routes/routes.dart';
-import '../constants/app_assets.dart';
-import '../constants/app_colors.dart';
+import '../../constants/app_assets.dart';
+import '../../constants/app_colors.dart';
 
 
 class HomePage extends StatelessWidget {

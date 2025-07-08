@@ -150,7 +150,9 @@ class CustomDrawer extends StatelessWidget {
               _buildSection(
                   "Account Privacy & Setting",
                   [
-                    _drawerItem("Change Password", () {}),
+                    _drawerItem("Change Password", () {
+                      Navigator.pushNamed(context, AppRoutes.settingmain);
+                    }),
                     _drawerItem("Setup 2 Factor Authentication", () {}),
                   ],
                   context),
@@ -162,7 +164,9 @@ class CustomDrawer extends StatelessWidget {
                     _drawerItem("Submit a ticket", () {
                       Navigator.pushNamed(context, AppRoutes.tickethome);
                     }),
-                    _drawerItem("View tickets", () {}),
+                    _drawerItem("View tickets", () {
+                      Navigator.pushNamed(context, AppRoutes.viewticket);
+                    }),
                   ],
                   context),
 

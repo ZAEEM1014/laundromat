@@ -1,13 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:laundromat/widgets/primary_button.dart';
+import 'package:laundromat/constants/app_assets.dart';
 import 'package:laundromat/constants/app_colors.dart';
+import 'package:laundromat/routes/routes.dart';
+import 'package:laundromat/widgets/primary_button.dart';
+import 'package:laundromat/widgets/text_field.dart';
 
-import '../constants/app_assets.dart';
-import '../widgets/text_field.dart';
-import '../routes/routes.dart';
+class ResetPasswordScreen extends StatefulWidget {
+  final String from;
+  const ResetPasswordScreen({super.key, required this.from});
 
-class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+
+
+  @override
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
+}
+
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
+  String from = 'signin'; // Default origin
+
+  @override
+  void initState() {
+    super.initState();
+    debugPrint('ResetPasswordScreen opened from: ${widget.from}');
+  }
+
+  void _handleReset() {
+    // TODO: Add real reset password logic here
+    debugPrint('Redirecting after reset. From: ${widget.from}');
+
+    if (widget.from == 'settings') {
+      Navigator.pushReplacementNamed(context, AppRoutes.settingmain);
+    } else {
+      Navigator.pushReplacementNamed(context, AppRoutes.signIn);
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +48,7 @@ class ResetPasswordScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 40),
 
-              // Logo (replace with your image asset if needed)
+              // Logo
               Center(
                 child: Image.asset(
                   AppAssets.bglogo,
@@ -66,9 +93,7 @@ class ResetPasswordScreen extends StatelessWidget {
 
               PrimaryButton(
                 label: 'Reset Password',
-                onPressed: () {
-                  Navigator.pushNamed(context, AppRoutes.signIn);
-                },
+                onPressed: _handleReset,
               ),
             ],
           ),

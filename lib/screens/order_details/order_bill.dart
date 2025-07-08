@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:laundromat/constants/app_colors.dart';
 import 'package:laundromat/widgets/gradient_button.dart';
 import 'package:laundromat/widgets/primary_button.dart';
-import 'package:laundromat/screens/order_billing/components/service_section_billing.dart';
 import 'package:laundromat/data/laundry_data.dart';
+import 'components/service_section_billing.dart';
 
 class OrderBillScreen extends StatefulWidget {
   final double laundryWeight;

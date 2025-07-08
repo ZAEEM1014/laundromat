@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:laundromat/widgets/primary_button.dart';
 import 'package:laundromat/constants/app_colors.dart';
 
-import '../constants/app_assets.dart';
-import '../routes/routes.dart'; // ✅ import your AppColors
+import '../../constants/app_assets.dart';
+import '../../routes/routes.dart'; // ✅ import your AppColors
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});

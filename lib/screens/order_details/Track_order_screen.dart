@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:laundromat/constants/app_colors.dart';
 import 'package:laundromat/widgets/primary_button.dart';
 import 'package:laundromat/widgets/text_field.dart';
-import '../routes/routes.dart';
-import '../widgets/custom_navbar.dart';
+import '../../routes/routes.dart';
+import '../../widgets/custom_navbar.dart';
 
 class TrackOrderScreen extends StatefulWidget {
   final String date;

@@ -8,7 +8,7 @@ import '../../widgets/custom_snackbar.dart';
 import '../../widgets/gradient_button.dart';
 import '../../widgets/preference_sheet.dart';
 
-import '../../screens/new_order/components/service_section.dart';
+import 'components/service_section.dart';
 
 class NewOrderScreen extends StatefulWidget {
   const NewOrderScreen({super.key});

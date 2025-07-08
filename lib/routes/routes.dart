@@ -1,24 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:laundromat/screens/SignIN.dart';
-import 'package:laundromat/screens/SignUp.dart';
-import 'package:laundromat/screens/forgot_password.dart';
-import 'package:laundromat/screens/reset_password.dart';
-import 'package:laundromat/screens/track_order_access.dart';
+import 'package:laundromat/screens/authentications/SignIN.dart';
+import 'package:laundromat/screens/authentications/SignUp.dart';
+import 'package:laundromat/screens/authentications/forgot_password.dart';
+import 'package:laundromat/screens/authentications/reset_password.dart';
+import 'package:laundromat/screens/order_details/track_order_access.dart';
+import 'package:laundromat/screens/privacy_setting/setting_home_screen.dart';
 import 'package:laundromat/screens/wallet/add_funds_screen.dart';
 import 'package:laundromat/screens/wallet/recent_transactions.dart';
 import 'package:laundromat/screens/wallet/update_card_screen.dart';
 import 'package:laundromat/screens/wallet/wallet_home_screen.dart';
 
 
-import '../screens/edit_profile_screen.dart';
+import '../screens/profile/edit_profile_screen.dart';
 import '../screens/nav_bar_app.dart';
-import '../screens/order_billing/order_bill.dart';
-import '../screens/order_confirmation_screen.dart';
-import '../screens/Track_order_screen.dart';
-import '../screens/order_failure_screen.dart';
-import '../screens/order_success_screen.dart';
+import '../screens/order_details/order_bill.dart';
+import '../screens/orders/order_confirmation_screen.dart';
+import '../screens/order_details/Track_order_screen.dart';
+import '../screens/orders/order_failure_screen.dart';
+import '../screens/orders/order_success_screen.dart';
 import '../screens/tickets/submit_ticket_screen.dart';
 import '../screens/tickets/ticket_home_screen.dart';
+import '../screens/tickets/view_ticket_screen.dart';
 import '../screens/wallet/add_card_screen.dart';
 
 
@@ -44,6 +46,8 @@ class AppRoutes {
   static const String recenttranactions = '/recent-transactions';
   static const String tickethome = '/ticket-home';
   static const String submitticket = '/submit-ticket';
+  static const String viewticket = '/view-ticket';
+  static const String settingmain = '/setting-main';
 
 
 
@@ -56,8 +60,13 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case forgotPassword:
         return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
-      case resetPassword:
-        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
+    case resetPassword:
+    final args = settings.arguments as Map<String, dynamic>? ?? {};
+    final from = args['from'] ?? 'signin';
+    return MaterialPageRoute(
+    builder: (_) => ResetPasswordScreen(from: from),
+    );
+
       case mainNav:
         return MaterialPageRoute(builder: (_) => const NavBarApp(selectedIndex: 0));
       case newOrder:
@@ -152,6 +161,12 @@ class AppRoutes {
 
       case submitticket:
         return MaterialPageRoute(builder: (_) => const SubmitTicketScreen());
+
+      case viewticket:
+        return MaterialPageRoute(builder: (_) => const ViewTicketScreen());
+
+      case settingmain:
+        return MaterialPageRoute(builder: (_) => const SettingHomeScreen());
 
 
       default:

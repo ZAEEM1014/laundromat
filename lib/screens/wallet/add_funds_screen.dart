@@ -9,7 +9,7 @@ import '../../constants/app_colors.dart';
 import '../../widgets/custom_appBar.dart';
 import '../../widgets/custom_drawer.dart';
 import '../../widgets/custom_navbar.dart';
-import '../edit_profile_screen.dart';
+import '../profile/edit_profile_screen.dart';
 
 class AddFunds extends StatefulWidget {
   const AddFunds({super.key});

@@ -11,7 +11,7 @@ import 'package:laundromat/widgets/outlined_button.dart';
 import 'package:laundromat/widgets/primary_button.dart';
 import 'package:laundromat/widgets/gradient_button.dart';
 import '../../data/wallet_data.dart';
-import '../edit_profile_screen.dart';
+import '../profile/edit_profile_screen.dart';
 import 'components/saved_payment_card.dart';
 
 class WalletHomeScreen extends StatefulWidget {

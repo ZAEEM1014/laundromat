@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:laundromat/constants/app_colors.dart';
 import 'package:laundromat/widgets/primary_button.dart';
 
-import '../routes/routes.dart';
+import '../../routes/routes.dart';
 
 class OrderSuccessScreen extends StatelessWidget {
   final String soapId;

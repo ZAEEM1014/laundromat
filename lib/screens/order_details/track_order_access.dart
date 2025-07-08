@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:laundromat/constants/app_assets.dart';
 import 'package:laundromat/constants/app_colors.dart';
 import 'package:laundromat/widgets/text_field.dart';
-import '../routes/routes.dart';
-import '../widgets/custom_navbar.dart';
-import '../widgets/gradient_button.dart';
+import '../../routes/routes.dart';
+import '../../widgets/custom_navbar.dart';
+import '../../widgets/gradient_button.dart';
 
 class TrackOrderAccess extends StatefulWidget {
   const TrackOrderAccess({super.key});

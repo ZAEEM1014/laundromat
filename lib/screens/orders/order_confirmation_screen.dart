@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:laundromat/constants/app_colors.dart';
 import 'package:laundromat/widgets/text_field.dart';
-import '../data/laundry_data.dart';
-import '../routes/routes.dart';
-import '../widgets/custom_navbar.dart';
-import '../widgets/gradient_button.dart';
-import '../widgets/preference_button.dart';
+import '../../data/laundry_data.dart';
+import '../../routes/routes.dart';
+import '../../widgets/custom_navbar.dart';
+import '../../widgets/gradient_button.dart';
+import '../../widgets/preference_button.dart';
 
 class OrderConfirmationScreen extends StatefulWidget {
   const OrderConfirmationScreen({super.key});

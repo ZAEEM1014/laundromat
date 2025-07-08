@@ -4,7 +4,7 @@ import 'package:laundromat/constants/app_colors.dart';
 import '../../widgets/custom_appBar.dart';
 import '../../widgets/custom_drawer.dart';
 import '../../widgets/custom_navbar.dart';
-import '../edit_profile_screen.dart';
+import '../profile/edit_profile_screen.dart';
 import 'components/card_form.dart';
 
 class UpdateCardScreen extends StatefulWidget {

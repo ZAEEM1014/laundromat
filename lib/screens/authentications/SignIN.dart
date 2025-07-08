@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:laundromat/constants/app_assets.dart';
 
-import '../constants/app_colors.dart';
-import '../routes/routes.dart';
-import '../widgets/outlined_button.dart';
-import '../widgets/primary_button.dart';
-import '../widgets/social_outlined_button.dart';
-import '../widgets/text_field.dart';
+import '../../constants/app_colors.dart';
+import '../../routes/routes.dart';
+import '../../widgets/outlined_button.dart';
+import '../../widgets/primary_button.dart';
+import '../../widgets/social_outlined_button.dart';
+import '../../widgets/text_field.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -87,12 +87,14 @@ class SignInScreen extends StatelessWidget {
               SocialOutlinedButton(
                 label: "Continue with Facebook",
                 iconPath: AppAssets.facebook,
+                color: AppColors.border,
                 onPressed: () {},
               ),
               const SizedBox(height: 12),
               SocialOutlinedButton(
                 label: "Continue with Google",
                 iconPath:AppAssets.google,
+                color: AppColors.border,
                 onPressed: () {},
               ),
             ],

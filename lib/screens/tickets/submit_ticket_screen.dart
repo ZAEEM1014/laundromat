@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:laundromat/constants/app_assets.dart';
+import 'package:laundromat/routes/routes.dart';
 import 'package:laundromat/widgets/gradient_button.dart';
 import 'package:laundromat/widgets/social_outlined_button.dart';
 import 'package:laundromat/widgets/text_field.dart';
@@ -9,7 +10,7 @@ import '../../constants/app_colors.dart';
 import '../../widgets/custom_appBar.dart';
 import '../../widgets/custom_drawer.dart';
 import '../../widgets/custom_navbar.dart';
-import '../edit_profile_screen.dart';
+import '../profile/edit_profile_screen.dart';
 
 class SubmitTicketScreen extends StatefulWidget {
   const SubmitTicketScreen({super.key});
@@ -247,7 +248,7 @@ class TicketSubmtted extends StatelessWidget {
                 child: GradientButton(
                   label: 'View Tickets',
                   onPressed: () {
-                   // Execute action
+                  Navigator.pushNamed(context, AppRoutes.viewticket);
                   },
                 ),
               ),

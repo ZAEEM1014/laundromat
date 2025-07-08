@@ -29,11 +29,11 @@ class SocialOutlinedButton extends StatelessWidget {
         icon: SvgPicture.asset(
           iconPath,
           height: 24,
-          colorFilter: ColorFilter.mode(effectiveColor, BlendMode.srcIn), // ✅ Apply color to SVG
+           // ✅ Apply color to SVG
         ),
         label: Text(
           label,
-          style: TextStyle(color: effectiveColor),
+          style: TextStyle(color: AppColors.text),
         ),
         style: OutlinedButton.styleFrom(
           side: BorderSide(color: effectiveColor),

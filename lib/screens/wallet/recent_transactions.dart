@@ -10,7 +10,7 @@ import '../../data/wallet_data.dart';
 import '../../widgets/custom_appBar.dart';
 import '../../widgets/custom_drawer.dart';
 import '../../widgets/custom_navbar.dart';
-import '../edit_profile_screen.dart';
+import '../profile/edit_profile_screen.dart';
 import 'components/recent_transactions.dart';
 
 class RecentTransactions extends StatefulWidget {
